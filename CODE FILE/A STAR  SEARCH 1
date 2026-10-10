@@ -1,0 +1,56 @@
+
+graph = {
+    'S': {'A': 2, 'D': 4},
+    'A': {'S': 2, 'B': 4, 'D': 5},
+    'B': {'A': 4, 'C': 4, 'E': 5},
+    'C': {'B': 4},
+    'D': {'S': 4, 'A': 5, 'E': 2},
+    'E': {'D': 2, 'B': 5, 'F': 4},
+    'F': {'E': 4, 'G': 3},
+    'G': {'F': 3}
+}
+
+h = {
+    'S': 11.5,
+    'A': 10.1,
+    'B': 5.8,
+    'C': 3.4,
+    'D': 9.2,
+    'E': 7.1,
+    'F': 3.5,
+    'G': 0
+}
+
+open_list = ['S']
+g = {'S': 0}
+parent = {}
+
+while open_list:
+    current = min(open_list, key=lambda n: g[n] + h[n])
+    open_list.remove(current)
+
+    if current == 'G':
+        break
+
+    for neighbor in graph[current]:
+        cost = g[current] + graph[current][neighbor]
+
+        if neighbor not in g or cost < g[neighbor]:
+            g[neighbor] = cost
+            parent[neighbor] = current
+
+            if neighbor not in open_list:
+                open_list.append(neighbor)
+
+path = []
+node = 'G'
+
+while node in parent:
+    path.append(node)
+    node = parent[node]
+
+path.append('S')
+path.reverse()
+
+print("Path:", " -> ".join(path))
+print("Total Cost:", g['G'])
