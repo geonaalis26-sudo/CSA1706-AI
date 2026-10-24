@@ -356,6 +356,102 @@ STOP
 
 QUESTION 2:WATER JUG
 
+BEGIN
+
+    SET jug12 = 12
+    SET jug8 = 0
+    SET jug5 = 0
+
+    PRINT jug12, jug8, jug5
+
+    STEP 1:
+        SET jug8 = 8
+        SET jug12 = jug12 - 8
+        PRINT jug12, jug8, jug5
+
+    STEP 2:
+        SET jug5 = 5
+        SET jug8 = jug8 - 5
+        PRINT jug12, jug8, jug5
+
+    STEP 3:
+        SET jug12 = jug12 + jug5
+        SET jug5 = 0
+        PRINT jug12, jug8, jug5
+
+    STEP 4:
+        SET jug5 = jug8
+        SET jug8 = 0
+        PRINT jug12, jug8, jug5
+
+    STEP 5:
+        SET jug8 = 8
+        SET jug12 = jug12 - 8
+        PRINT jug12, jug8, jug5
+
+    STEP 6:
+        SET pour = 5 - jug5
+        SET jug5 = jug5 + pour
+        SET jug8 = jug8 - pour
+        PRINT jug12, jug8, jug5
+
+    STEP 7:
+        SET jug12 = jug12 + jug5
+        SET jug5 = 0
+        PRINT jug12, jug8, jug5
+
+END
+
+QUESTION 3:WATER JUG
+
+BEGIN
+
+    SET jug3 = 0
+    SET jug5 = 0
+    SET jug8 = 8
+
+    PRINT jug3, jug5, jug8
+
+    STEP 1: Transfer 8L to 5L
+        SET jug5 = 5
+        SET jug8 = 3
+        PRINT jug3, jug5, jug8
+
+    STEP 2: Transfer 5L to 3L
+        SET jug3 = 3
+        SET jug5 = 2
+        PRINT jug3, jug5, jug8
+
+    STEP 3: Transfer 3L to 8L
+        SET jug8 = jug8 + jug3
+        SET jug3 = 0
+        PRINT jug3, jug5, jug8
+
+    STEP 4: Transfer 5L to 3L
+        SET jug3 = 2
+        SET jug5 = 0
+        PRINT jug3, jug5, jug8
+
+    STEP 5: Transfer 8L to 5L
+        SET jug5 = 5
+        SET jug8 = jug8 - 5
+        PRINT jug3, jug5, jug8
+
+    STEP 6: Transfer 5L to 3L
+        SET jug5 = 4
+        SET jug3 = 3
+        PRINT jug3, jug5, jug8
+
+    STEP 7: Transfer 3L to 8L
+        SET jug8 = jug8 + jug3
+        SET jug3 = 0
+        PRINT jug3, jug5, jug8
+
+END
+
+QUESTION
+
+
 
 
 
