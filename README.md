@@ -449,7 +449,99 @@ BEGIN
 
 END
 
-QUESTION
+QUESTION-1 A STAR SEARCH
+
+START
+
+1. Initialize OPEN list with start node S
+2. Set g[S] = 0
+3. Initialize PARENT as empty
+
+4. WHILE OPEN list is not empty:
+
+       Select node CURRENT with minimum
+       f(n) = g(n) + h(n)
+
+       Remove CURRENT from OPEN list
+
+       IF CURRENT = G:
+           BREAK
+
+       FOR each NEIGHBOR of CURRENT:
+
+           COST = g[CURRENT] + edge cost
+
+           IF NEIGHBOR is not visited
+           OR COST < g[NEIGHBOR]:
+
+               g[NEIGHBOR] = COST
+               PARENT[NEIGHBOR] = CURRENT
+
+               IF NEIGHBOR is not in OPEN:
+                   Add NEIGHBOR to OPEN
+
+5. Set NODE = G
+6. Initialize PATH as empty
+
+7. WHILE NODE has a parent:
+       Add NODE to PATH
+       NODE = PARENT[NODE]
+
+8. Add S to PATH
+9. Reverse PATH
+
+10. Print PATH
+11. Print total cost g[G]
+
+STOP
+
+QUESTION 2-A STAR SEARCH
+
+START
+
+1. Initialize OPEN list with A
+2. Set g[A] = 0
+3. Initialize PARENT as empty
+
+4. WHILE OPEN list is not empty:
+
+       Select CURRENT node with minimum
+       f(n) = g(n) + h(n)
+
+       Remove CURRENT from OPEN list
+       Print CURRENT
+
+       IF CURRENT = G:
+           BREAK
+
+       FOR each NEIGHBOR of CURRENT:
+
+           COST = g[CURRENT] + edge cost
+
+           IF NEIGHBOR is not in g
+           OR COST < g[NEIGHBOR]:
+
+               g[NEIGHBOR] = COST
+               PARENT[NEIGHBOR] = CURRENT
+
+               IF NEIGHBOR is not in OPEN:
+                   Add NEIGHBOR to OPEN
+
+5. Set NODE = G
+6. Initialize PATH as empty
+
+7. WHILE NODE has a parent:
+       Add NODE to PATH
+       NODE = PARENT[NODE]
+
+8. Add A to PATH
+9. Reverse PATH
+
+10. Print PATH
+11. Print total cost g[G]
+
+STOP
+
 
 
 
