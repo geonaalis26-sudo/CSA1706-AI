@@ -543,6 +543,88 @@ START
 STOP
 
 
+QUESTION 1-GBFS
+
+START
+
+1. Initialize graph and heuristic values h(n).
+
+2. Set visited = empty list.
+3. Set queue = [start].
+
+4. WHILE queue is not empty DO
+
+      Select node with minimum heuristic value from queue.
+      Remove node from queue.
+
+      IF node is not in visited THEN
+          Print node.
+          Add node to visited.
+
+          IF node = goal THEN
+              Print "Goal reached!"
+              STOP
+          END IF
+
+          FOR each neighbor of node DO
+              IF neighbor is not in visited THEN
+                  Add neighbor to queue.
+              END IF
+          END FOR
+      END IF
+
+   END WHILE
+
+STOP
+
+
+QUESTION 1-ALPHA BETA PRUNNING
+START
+
+1. Define MINIMAX(tree, depth, alpha, beta, maximizing).
+
+2. IF tree is an integer THEN
+       RETURN tree
+   END IF
+
+3. IF maximizing = TRUE THEN
+       best = -999
+
+       FOR each child in tree DO
+           value = MINIMAX(child, depth + 1, alpha, beta, FALSE)
+           best = maximum(best, value)
+           alpha = maximum(alpha, best)
+
+           IF beta <= alpha THEN
+               BREAK
+           END IF
+       END FOR
+
+       RETURN best
+
+4. ELSE
+       best = 999
+
+       FOR each child in tree DO
+           value = MINIMAX(child, depth + 1, alpha, beta, TRUE)
+           best = minimum(best, value)
+           beta = minimum(beta, best)
+
+           IF beta <= alpha THEN
+               BREAK
+           END IF
+       END FOR
+
+       RETURN best
+   END IF
+
+5. Set tree = [[2, 3], [5, 9], [[0, 1], [7, 5]]].
+
+6. Print MINIMAX(tree, 0, -999, 999, TRUE).
+
+STOP
+
+
 
 
 
